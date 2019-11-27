@@ -1,0 +1,147 @@
+<h2>Billing Address</h2>
+<form name="form" [formGroup]="form">
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationServer01">First name</label>
+            <input type="text" class="form-control" value="{{editdata['firstname']}}" [ngClass]="{'is-invalid':form.get('firstname').invalid  &&  form.get('firstname').touched  }" formControlName="firstname" id="validationServer01" placeholder="First name">
+
+            <div *ngIf="form.get('firstname').errors?.required" class="invalid-feedback">
+                Please provide a valid First Name!
+                <br> First name with at least 3
+            </div>
+            <div *ngIf="form.get('firstname').errors?.minlength" class="invalid-feedback">
+                First name with at least 3
+            </div>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Last Name</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':form.get('lastname').invalid  &&  form.get('lastname').touched  }" formControlName="lastname" id="validationServer03" placeholder="Last Name">
+
+            <div *ngIf="form.get('lastname').errors?.required" class="invalid-feedback">
+                Please provide a valid last Name!
+                <br> last name with at least 3
+            </div>
+            <div *ngIf="form.get('lastname').errors?.minlength" class="invalid-feedback">
+                last name with at least 3
+            </div>
+        </div>
+    </div>
+    <label for="Username">Username</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" [ngClass]="{'is-invalid':form.get('username').invalid  &&  form.get('username').touched  }" formControlName="username">
+        <div class="invalid-feedback">
+            Please provide a valid UserName!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email (Optional)</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="you@example.com ">
+
+    </div>
+    <div class="form-group ">
+        <label>Address 1</label>
+        <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'address').invalid && form.get( 'address').touched } " formControlName="address" id="adsress " placeholder="1234 Main St ">
+        <div class="invalid-feedback ">
+            Please provide a valid Address!
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="address ">Address 2</label>
+        <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'address2').invalid && form.get( 'address2').touched } " formControlName="address2" id="adsress " placeholder="Apartment or suite ">
+        <div class="invalid-feedback ">
+            Please provide a valid Address!
+        </div>
+    </div>
+    <div class="form-row ">
+        <div class="form-group col-md-6 ">
+            <label for="inputCity ">City</label>
+            <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'city').invalid && form.get( 'city').touched } " formControlName="city" id="inputCity ">
+            <div class="invalid-feedback ">
+                Please provide a valid City!
+            </div>
+        </div>
+        <div class="form-group col-md-4 ">
+            <label for="inputState ">State</label>
+            <select id="inputState " class="form-control ">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                    </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip ">Zip</label>
+            <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'zip').invalid && form.get( 'zip').touched } " formControlName="zip" id="zip ">
+            <div class="invalid-feedback">
+                Please provide a valid Zip!
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="form-group ">
+        <div class="custom-control custom-checkbox ">
+            <input type="checkbox" class="custom-control-input" checked id="customCheck1">
+            <label class="custom-control-label" for="customCheck1 "> Shipping address is the same as my billing address</label>
+        </div>
+        <div class="custom-control custom-checkbox ">
+            <input type="checkbox" class="custom-control-input" id="customCheck2 ">
+            <label class="custom-control-label " for="customCheck2 "> Save this information for next time</label>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="form-group">
+        <h2>Payment</h2>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" checked name="customRadio" class="custom-control-input ">
+            <label class="custom-control-label" for="customRadio1"> Credit card</label>
+        </div>
+        <div class="custom-control custom-radio ">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input ">
+            <label class="custom-control-label" for="customRadio2"> Debit card</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio3"> PayPal</label>
+        </div>
+        <div class="form-row mt-3 ">
+            <div class="form-group col-md-6 ">
+                <label for="inputEmail4 ">Name on card</label>
+                <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'nameoncard').invalid && form.get( 'nameoncard').touched } " formControlName="nameoncard" id="inputEmail4 ">
+                <small>Full name as displayed on card </small>
+                <div class="invalid-feedback ">
+                    Please provide Full name as displayed on card!
+                </div>
+            </div>
+            <div class="form-group col-md-6 ">
+                <label for="inputPassword4 ">Credit card number</label>
+                <input type="text " class="form-control" [ngClass]="{ 'is-invalid':form.get( 'cardnumber').invalid && form.get( 'cardnumber').touched } " formControlName="cardnumber" id="inputPassword4 ">
+                <div class="invalid-feedback ">
+                    Please provide Credit card number!
+                </div>
+            </div>
+        </div>
+        <div class="form-row mt-3 ">
+            <div class="form-group col-md-3 ">
+                <label for="inputEmail4 ">Expiration</label>
+                <input type="text " class="form-control " [ngClass]="{ 'is-invalid':form.get( 'Expiration').invalid && form.get( 'Expiration').touched } " formControlName="Expiration" id="inputEmail4 ">
+                <div class="invalid-feedback ">
+                    Please provide Expiration!
+                </div>
+            </div>
+            <div class="form-group col-md-3 ">
+                <label for="inputPassword4 ">CVV</label>
+                <input type="text " [ngClass]="{ 'is-invalid':form.get( 'CVV').invalid && form.get( 'CVV').touched } " formControlName="CVV" class="form-control " id="inputPassword4 ">
+                <div class="invalid-feedback ">
+                    Please provide CVV!
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" (click)="submit()" [disabled]="!form.valid " class="btn btn-primary btn-lg btn-block ">Continue to checkout</button>
+
+</form>

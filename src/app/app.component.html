@@ -1,0 +1,46 @@
+<div class="bg-light">
+    <div class="container">
+        <app-header></app-header>
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <app-billing-adress class="col-md-8" (data)="ongetData($event)" [formdata]="editdata"></app-billing-adress>
+                <app-cart class="col-md-4"></app-cart>
+            </div>
+        </div>
+        <table class="table my-5">
+            <tr>
+                <td>Index</td>
+                <td>Full Name</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Address </td>
+                <td>Actions</td>
+            </tr>
+            <tr *ngFor="let item of list; index as i ">
+                <td>{{i}}</td>
+                <td>
+                    {{ item.firstname }}
+                </td>
+                <td>
+                    {{item.username}}
+                </td>
+                <td>
+                    {{item.email}}
+
+                </td>
+                <td>
+                    {{item.address}}
+
+                </td>
+                <td>
+                    <a href="#"><i class="fa fa-edit" (click)="edit( i )" > </i></a> <a href="#" (click)="delete(i)" class="ml-2"><i class="fa fa-trash"> </i></a>
+                </td>
+
+            </tr>
+
+        </table>
+        <app-footer></app-footer>
+
+    </div>
+</div>
