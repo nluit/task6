@@ -8,18 +8,20 @@ import {FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AppComponent {
   
-  public editdata:  any=[];
+  public formedit:  any=[];
+  
   title = 'task6';
-  public list: any=[];
+  public list: any=[];  
   
-  
+
   ongetData(value){
+
     this.list=value;
 
   }
   edit(i){
-    this.editdata=this.list[i];
-     
+    this.formedit=this.list[i];
+         
   }
   delete(i){
     this.list.splice(i,1);     
